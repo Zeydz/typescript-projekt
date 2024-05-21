@@ -1,4 +1,3 @@
-
 <div class="container">
   <mat-form-field>
     <mat-label>Filter</mat-label>
@@ -7,8 +6,8 @@
 
   <mat-form-field>
     <mat-label>Välj ämne</mat-label>
-    <mat-select (selectionChange)="filterCoursesBySubject($event.value)">
-      <mat-option *ngFor="let subject of uniqueSubjects" [value]="subject">{{ subject }}</mat-option>
+    <mat-select [(value)]="selectedSubject" (selectionChange)="filterCoursesBySubject($event.value)">
+      <mat-option *ngFor="let subject of uniqueSubjects" [value]="subject">{{ subject === 'alla' ? 'Alla ämnen' : subject }}</mat-option>
     </mat-select>
   </mat-form-field>
 
@@ -19,24 +18,6 @@
       <ng-container matColumnDef="courseCode">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Kurskod </th>
         <td mat-cell *matCellDef="let row"> {{row.courseCode}} </td>
-      </ng-container>
-
-      <!-- Subject Code Column -->
-      <ng-container matColumnDef="subjectCode">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Ämneskod </th>
-        <td mat-cell *matCellDef="let row"> {{row.subjectCode}} </td>
-      </ng-container>
-
-      <!-- Level Column -->
-      <ng-container matColumnDef="level">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nivå </th>
-        <td mat-cell *matCellDef="let row"> {{row.level}} </td>
-      </ng-container>
-
-      <!-- Progression Column -->
-      <ng-container matColumnDef="progression">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Progression </th>
-        <td mat-cell *matCellDef="let row"> {{row.progression}} </td>
       </ng-container>
 
       <!-- Course Name Column -->
@@ -51,12 +32,6 @@
         <td mat-cell *matCellDef="let row"> {{row.points}} </td>
       </ng-container>
 
-      <!-- Institution Code Column -->
-      <ng-container matColumnDef="institutionCode">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Institutionskod </th>
-        <td mat-cell *matCellDef="let row"> {{row.institutionCode}} </td>
-      </ng-container>
-
       <!-- Subject Column -->
       <ng-container matColumnDef="subject">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Ämne </th>
@@ -66,15 +41,17 @@
       <!-- Syllabus Column -->
       <ng-container matColumnDef="syllabus">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Syllabus </th>
-        <td mat-cell *matCellDef="let row"> <a href="{{row.syllabus}}">Kursplan</a></td>
+        <td mat-cell *matCellDef="let row"> {{row.syllabus}} </td>
       </ng-container>
 
+      <!-- Add Column -->
       <ng-container matColumnDef="add">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Spara </th>
-        <td mat-cell *matCellDef="let row"><button mat-icon-button (click)="addCourse(row)">
-          <mat-icon>add</mat-icon>
-        </button>
-    </td>
+        <th mat-header-cell *matHeaderCellDef> Spara </th>
+        <td mat-cell *matCellDef="let row">
+          <button mat-icon-button (click)="addCourse(row)">
+            <mat-icon>add</mat-icon>
+          </button>
+        </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

@@ -23,6 +23,8 @@ export class CoursesComponent implements AfterViewInit {
   displayedColumns: string[] = ['courseCode', 'courseName', 'points', 'subject', 'syllabus', 'add']; 
   dataSource: MatTableDataSource<Course>; 
   uniqueSubjects: string[];
+  selectedSubject: string = 'alla';
+
   
   /* Definierar Paginator */
   @ViewChild(MatPaginator) paginator!: MatPaginator; 
@@ -30,7 +32,7 @@ export class CoursesComponent implements AfterViewInit {
   /* Constructor som körs direkt */
   constructor(private dataService: DataService, private snackBar: MatSnackBar) { 
     this.dataSource = new MatTableDataSource<Course>(); 
-    this.uniqueSubjects = []
+    this.uniqueSubjects = ['alla']
   }
 
   /* Ändrar paginator efter innehåll */
@@ -44,7 +46,7 @@ export class CoursesComponent implements AfterViewInit {
     this.dataService.getCourses().subscribe({ 
       next: (data: Course[]) => {
         this.dataSource.data = data; 
-        this.uniqueSubjects = this.getUniqueSubjects(data);
+        this.uniqueSubjects = ['alla', ...this.getUniqueSubjects(data)];
       },
       error: (error) => { 
         console.error('Fel vid fetch av kurser', error); 
@@ -63,13 +65,13 @@ export class CoursesComponent implements AfterViewInit {
 
   /* Funktion för att filtrera kurser baserat på ämne */
   filterCoursesBySubject(subject: string): void {
-    if (subject) {
+    if (subject === 'alla' || !subject) {
+      this.dataSource.filter = '';
+    } else {
       this.dataSource.filterPredicate = (data: Course, filter: string) => {
         return data.subject.toLowerCase().trim() === filter;
       };
       this.dataSource.filter = subject.toLowerCase().trim();
-    } else {
-      this.dataSource.filter = '';
     }
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
@@ -91,6 +93,5 @@ export class CoursesComponent implements AfterViewInit {
       duration: 3000,
 
     });
-
   }
 }
