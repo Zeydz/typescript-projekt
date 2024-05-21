@@ -4,13 +4,15 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NavigationComponent, FormsModule, CommonModule],
+  imports: [RouterOutlet, NavigationComponent, FormsModule, CommonModule, MatSnackBarModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

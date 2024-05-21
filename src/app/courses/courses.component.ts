@@ -8,18 +8,19 @@ import { Course } from '../model/course';
 import { DataService } from '../service/data.service'; 
 import { CommonModule } from '@angular/common'; 
 import { MatSelect, MatSelectModule } from '@angular/material/select';
-
+import { MatIconModule} from '@angular/material/icon';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-courses',
   standalone: true,
-  imports: [ CommonModule, MatInputModule, MatFormFieldModule, MatTableModule, MatSortModule, MatPaginatorModule, MatSelectModule],
+  imports: [ CommonModule, MatInputModule, MatFormFieldModule, MatTableModule, MatSortModule, MatPaginatorModule, MatSelectModule, MatIconModule, MatSnackBarModule],
   templateUrl: './courses.component.html',
   styleUrls: ['./courses.component.scss']
 })
 /* Implementera AfterViewInit  */
 export class CoursesComponent implements AfterViewInit {
   /* Variabler */
-  displayedColumns: string[] = ['courseCode', 'subjectCode', 'level', 'progression', 'courseName', 'points', 'institutionCode', 'subject']; 
+  displayedColumns: string[] = ['courseCode', 'courseName', 'points', 'subject', 'syllabus', 'add']; 
   dataSource: MatTableDataSource<Course>; 
   uniqueSubjects: string[];
   
@@ -27,7 +28,7 @@ export class CoursesComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator; 
 
   /* Constructor som körs direkt */
-  constructor(private dataService: DataService) { 
+  constructor(private dataService: DataService, private snackBar: MatSnackBar) { 
     this.dataSource = new MatTableDataSource<Course>(); 
     this.uniqueSubjects = []
   }
@@ -79,5 +80,17 @@ export class CoursesComponent implements AfterViewInit {
   getUniqueSubjects(courses: Course[]): string[] {
     const subjects = courses.map(course => course.subject);
     return Array.from(new Set(subjects));
+  }
+
+  /* Lägg till kurs i localstorage */
+  addCourse(course: Course): void {
+    let savedCourses = JSON.parse(localStorage.getItem('savedCourses') || '[]');
+    savedCourses.push(course);
+    localStorage.setItem('savedCourses', JSON.stringify(savedCourses));
+    this.snackBar.open(`${course.courseName} har lagts till i dina sparade kurser.`, 'Stäng', {
+      duration: 3000,
+
+    });
+
   }
 }
