@@ -4,6 +4,13 @@
     <input matInput (keyup)="applyFilter($event)" placeholder="Skriv din sökfras här..." #input>
   </mat-form-field>
 
+  <mat-form-field>
+    <mat-label>Välj ämne</mat-label>
+    <mat-select (selectionChange)="filterCoursesBySubject($event.value)">
+      <mat-option *ngFor="let subject of uniqueSubjects" [value]="subject">{{ subject }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" matSort>
 
