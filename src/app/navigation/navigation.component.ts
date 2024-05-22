@@ -1,16 +1,27 @@
-import { AfterViewInit, Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild, ElementRef, NgModule } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import {
+  MatSlideToggleModule,
+} from '@angular/material/slide-toggle';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
   selector: 'app-navigation',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive],
+  imports: [RouterLink, RouterLinkActive, MatButtonModule, MatSlideToggleModule, FormsModule],
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.scss'
 })
 export class NavigationComponent implements OnInit{
-  
+  isChecked: boolean = false;
+
+  onToggleChange(event: any): void {
+    this.isChecked = event.checked;
+  }
+
+  /* Kod för mobilmeny */
   ngOnInit(): void {
     const menu = document.getElementById('togglemenuicon');
     const navlist = document.querySelector('.navlist');
@@ -27,4 +38,6 @@ export class NavigationComponent implements OnInit{
       menu?.classList.toggle('fa-xmark');
     });
   }
+
+
 }

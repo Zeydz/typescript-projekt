@@ -13,7 +13,8 @@ $about-color: #141414;
 }
 
 header {
-    background-color: $menu-color;
+    background-color: white;
+    border-bottom: 1px solid black;
     width: 100%;
     top: 0;
     right: 0;
@@ -29,7 +30,7 @@ header {
         font-size: 1.5em;
         width: 216px;
         text-align: center;
-        color: white;
+        color: black;
     }
 
     /* Mitten menyn */
@@ -41,7 +42,7 @@ header {
             margin: 0 30px;
             transition: all .50s ease;
             scroll-behavior: smooth;
-            color: white;
+            color: black;
             &:hover {
                 color: rgb(206, 206, 206);
             }
@@ -84,12 +85,6 @@ header {
         }
     }
 }
- 
-header.sticky {
-    padding: 12px 14%;
-    background-color: #2B2B2B;
-}
-
 
 /* Responsivitet */
 @media (max-width: 1545px) {
@@ -102,6 +97,25 @@ header.sticky {
         transition: .2s;
     }
 }
+
+
+
+.mdc-form-field {
+    color: white !important;
+}
+
+::ng-deep .mat-mdc-slide-toggle.mat-mdc-slide-toggle-checked:not(.mat-disabled) .mdc-switch__shadow {
+    background-color: rgb(50, 170, 118);
+  }
+  
+  ::ng-deep .mat-mdc-slide-toggle.mat-mdc-slide-toggle-checked:not(.mat-disabled) .mdc-switch__track::after {
+    background-color: rgb(113, 226, 147) !important;
+  }
+
+  ::ng-deep .mat-slide-toggle-label-content {
+    color: blue; /* Ändra färgen här */
+  }
+  
 
 @media (max-width: 1060px) {
     header .nav-icons #menu-icon {
