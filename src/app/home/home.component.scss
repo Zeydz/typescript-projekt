@@ -1,0 +1,32 @@
+section {
+    .pic {
+        width: 60%;
+        padding: 20px;
+        margin:  auto;
+        img {
+            
+            max-width: 100%;
+            margin: 3em auto;
+            display: block;
+        }
+    }
+
+}
+
+@media (max-width: 1080px) {
+    section {
+        .pic {
+            width: 80%;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    section {
+        .pic {
+            width: 100%;
+            
+        }
+    
+    }
+}
