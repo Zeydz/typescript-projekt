@@ -41,6 +41,7 @@ export class CoursesComponent implements AfterViewInit {
     this.dataSource.paginator = this.paginator; 
     this.dataSource.sort = this.sort;
     this.loadCourses();
+    
   }
 
   /* Ladda kurser från JSON-länk, skickar till dataSource */

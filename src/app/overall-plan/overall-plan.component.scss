@@ -25,6 +25,15 @@
       }
     }
   }
+  .points {
+    color: black;
+    text-align: center;
+    margin-top: 20px;
+  }
   .mat-select-value-text {
     color: black; // Exempel på att ändra textfärgen
+  }
+
+  @media (max-width: 1085px) {
+
   }

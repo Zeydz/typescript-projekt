@@ -38,16 +38,18 @@ export class OverallPlanComponent implements OnInit, AfterViewInit {
     'delete',
   ];
   dataSource: MatTableDataSource<Course>;
+  totalPoints: number = 0;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private localStorageService: LocalstorageService) {
+  constructor(private localStorageService: LocalstorageService, private snackBar: MatSnackBar) {
     this.dataSource = new MatTableDataSource<Course>();
   }
 
   ngOnInit(): void {
     this.loadCourses();
+    this.calculateTotalPoints();
   }
 
   /* Gör att endast valt antal rader visas, även hur många resultat totalt det finns */
@@ -65,6 +67,11 @@ export class OverallPlanComponent implements OnInit, AfterViewInit {
   deleteCourse(course: Course): void {
     this.localStorageService.deleteCourse(course.courseCode);
     this.loadCourses();
+    this.calculateTotalPoints();
+    this.snackBar.open(`${course.courseName} har tagits bort från dina sparade kurser.`, 'Stäng', {
+      duration: 3000,
+
+    });
   }
 
   /* Filter för att sortera sökning */
@@ -75,5 +82,11 @@ export class OverallPlanComponent implements OnInit, AfterViewInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  /* Räkna ihop poäng från lagrade kurser */
+  calculateTotalPoints(): void {
+    const courses = this.localStorageService.getCourses();
+    this.totalPoints = courses.reduce((total, course) => total + course.points, 0);
   }
 }
