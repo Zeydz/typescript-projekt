@@ -47,6 +47,7 @@ export class OverallPlanComponent implements OnInit, AfterViewInit {
     this.dataSource = new MatTableDataSource<Course>();
   }
 
+  /* Kör dessa funktioner vid initiering */
   ngOnInit(): void {
     this.loadCourses();
     this.calculateTotalPoints();
