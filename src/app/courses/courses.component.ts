@@ -28,6 +28,7 @@ export class CoursesComponent implements AfterViewInit {
   
   /* Definierar Paginator */
   @ViewChild(MatPaginator) paginator!: MatPaginator; 
+  @ViewChild(MatSort) sort!: MatSort;
 
   /* Constructor som körs direkt */
   constructor(private dataService: DataService, private snackBar: MatSnackBar) { 
@@ -38,6 +39,7 @@ export class CoursesComponent implements AfterViewInit {
   /* Ändrar paginator efter innehåll */
   ngAfterViewInit(): void { 
     this.dataSource.paginator = this.paginator; 
+    this.dataSource.sort = this.sort;
     this.loadCourses();
   }
 

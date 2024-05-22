@@ -24,4 +24,11 @@ export class LocalstorageService {
   clearCourses(): void {
     localStorage.removeItem(this.key);
   }
+
+    /* Ta bort en specifik kurs från localStorage */
+    deleteCourse(courseCode: string): void {
+      const savedCourses = this.getCourses();
+      const updatedCourses = savedCourses.filter((course: { courseCode: string }) => course.courseCode !== courseCode);
+      this.saveCourses(updatedCourses);
+    }
 }

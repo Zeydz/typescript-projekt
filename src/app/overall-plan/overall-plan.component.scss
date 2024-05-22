@@ -1,0 +1,30 @@
+.mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  .container {
+    width: 100%;
+    padding: 2em;
+    margin: auto;
+    color: white;
+    table {
+      width: 100%;
+  
+      color: black;
+  
+      td,
+      th {
+        width: 20%;
+      }
+      button {
+        border: none;
+        background-color: transparent;
+        font-weight: 700;
+        cursor: pointer;
+      }
+    }
+  }
+  .mat-select-value-text {
+    color: black; // Exempel på att ändra textfärgen
+  }
