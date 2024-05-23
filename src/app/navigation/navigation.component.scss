@@ -14,7 +14,7 @@ $about-color: #141414;
 
 header {
     background-color: white;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #875e28;
     width: 100%;
     top: 0;
     right: 0;
@@ -37,14 +37,14 @@ header {
     .navlist {
         display: flex;
         a {
-            font-size: 1.1em;
+            font-size: 1.3em;
             font-weight: 600;
             margin: 0 30px;
             transition: all .50s ease;
             scroll-behavior: smooth;
             color: black;
             &:hover {
-                color: rgb(206, 206, 206);
+                color: rgb(122, 122, 122);
             }
         }
     }
@@ -67,6 +67,9 @@ header {
             z-index: 10001;
             cursor: pointer;
             display: none;
+            #togglemenuicon {
+                color: #875e28;
+            }
         }
     }
 
@@ -138,6 +141,7 @@ header {
         padding: 0.5rem;
         margin: 1rem !important;
         border-left: 2px solid $accent-color;
+        color: white !important;
     }
     .navlist.open{
         top: 67px;

@@ -1,39 +1,57 @@
 .mat-mdc-form-field {
-    font-size: 14px;
+  font-size: 14px;
+  width: 100%;
+}
+
+.container {
+  width: 100%;
+  padding: 2em;
+  margin: auto;
+  color: white;
+  table {
     width: 100%;
-  }
-  
-  .container {
-    width: 100%;
-    padding: 2em;
-    margin: auto;
-    color: white;
-    table {
-      width: 100%;
-  
-      color: black;
-  
-      td,
-      th {
-        width: 20%;
-      }
-      button {
-        border: none;
-        background-color: transparent;
-        font-weight: 700;
-        cursor: pointer;
-      }
+
+    color: black;
+
+    td,
+    th {
+      width: 20%;
+    }
+    button {
+      border: none;
+      background-color: transparent;
+      font-weight: 700;
+      cursor: pointer;
     }
   }
-  .points {
-    color: black;
-    text-align: center;
-    margin-top: 20px;
-  }
-  .mat-select-value-text {
-    color: black; // Exempel på att ändra textfärgen
-  }
+}
+.points {
+  color: black;
+  text-align: center;
+  margin-top: 20px;
+}
+.mat-select-value-text {
+  color: black; // Exempel på att ändra textfärgen
+}
 
-  @media (max-width: 1085px) {
-
+/* Responsivitet */
+@media (max-width: 850px) {
+  .mat-column-subject {
+    display: none;
   }
+}
+
+@media (max-width: 673px) {
+  .mat-column-points {
+    display: none;
+  }
+}
+
+@media (max-width: 535px) {
+  .mat-column-syllabus {
+    display: none;
+  }
+  .container {
+    padding: 0;
+  }
+}

@@ -41,7 +41,7 @@
       <!-- Syllabus Column -->
       <ng-container matColumnDef="syllabus">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Syllabus </th>
-        <td mat-cell *matCellDef="let row"> {{row.syllabus}} </td>
+        <td mat-cell *matCellDef="let row"> <a href="{{row.syllabus}}">Kursplan</a> </td>
       </ng-container>
 
       <!-- Add Column -->

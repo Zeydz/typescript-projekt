@@ -31,3 +31,25 @@
     color: red; /* Ändra denna färg till vad du vill */
   }
 }
+
+/* Responsivitet */
+@media (max-width: 850px) {
+  .mat-column-subject {
+    display: none;
+  }
+}
+
+@media (max-width: 673px) {
+  .mat-column-points {
+    display: none;
+  }
+}
+
+@media (max-width: 535px) {
+  .mat-column-syllabus {
+    display: none;
+  }
+  .container {
+    padding: 0;
+  }
+}
