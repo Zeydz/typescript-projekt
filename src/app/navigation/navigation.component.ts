@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, OnInit, ViewChild, ElementRef, NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { RouterLink, RouterLinkActive, RouterModule } from '@angular/router';
 import {
   MatSlideToggleModule,
 } from '@angular/material/slide-toggle';
@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-navigation',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, MatButtonModule, MatSlideToggleModule, FormsModule],
+  imports: [RouterLink, RouterLinkActive, MatButtonModule, MatSlideToggleModule, FormsModule, RouterModule],
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.scss'
 })

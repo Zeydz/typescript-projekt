@@ -2,9 +2,9 @@
     <header>
         <a href="#home" id="logo">STADSPARKENS UNIVERSITET</a>
         <ul class="navlist">
-            <li><a routerLink="/home">HEM</a></li>
-            <li><a routerLink="/courses">KURSER</a></li>
-            <li><a routerLink="/overall-plan">RAMSCHEMA</a></li>
+            <li routerLinkActive="active"><a routerLink="/home" >HEM</a></li>
+            <li routerLinkActive="active"><a routerLink="/courses">KURSER</a></li>
+            <li routerLinkActive="active"><a routerLink="/overall-plan" >RAMSCHEMA</a></li>
         </ul>
         <div class="nav-icons">
             <mat-slide-toggle class="my-slide" style="color: white" [(ngModel)]="isChecked" (change)="onToggleChange($event)">{{ isChecked ? 'Dark Mode' : 'Light Mode' }}</mat-slide-toggle>

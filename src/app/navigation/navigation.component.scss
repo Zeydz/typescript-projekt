@@ -1,150 +1,165 @@
 /* Navigation */
-$accent-color: #FFC977;
+$accent-color: #ffc977;
 $body-color: #292929;
-$menu-color: #211F23;
+$menu-color: #211f23;
 $about-color: #141414;
 
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    list-style: none;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
 }
 
 header {
-    background-color: white;
-    border-bottom: 1px solid #875e28;
-    width: 100%;
-    top: 0;
-    right: 0;
-    z-index: 1000;
+  background-color: white;
+  border-bottom: 1px solid #875e28;
+  width: 100%;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 14%;
+  transition: all 0.5s ease;
+  list-style: none;
+
+  #logo {
+    font-size: 1.5em;
+    width: 216px;
+    text-align: center;
+    color: black;
+  }
+
+  /* Mitten menyn */
+  /* Mitten menyn */
+  .navlist {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin: 0 30px;
+
+      a {
+        font-size: 1.3em;
+        font-weight: 600;
+        transition: all 0.5s ease;
+        scroll-behavior: smooth;
+        color: #875e28;
+        text-decoration: none;
+
+        &:hover {
+          color: rgb(122, 122, 122);
+        }
+      }
+
+      &.active a {
+        border-bottom: 1px solid #875e28;
+        padding-bottom: 3px;
+      }
+    }
+  }
+
+  /* Gul knapp + ikoner */
+  .nav-icons {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 30px 14%;
-    transition: all .50s ease;
-    list-style: none;
-
-    #logo {
-        font-size: 1.5em;
-        width: 216px;
-        text-align: center;
-        color: black;
+    i {
+      font-size: 1.3em;
+      margin-left: 30px;
+      color: white;
+      &:hover {
+        transform: scale(1.1);
+        transition: all 0.5s ease;
+        color: rgb(228, 228, 228);
+      }
     }
-
-    /* Mitten menyn */
-    .navlist {
-        display: flex;
-        a {
-            font-size: 1.3em;
-            font-weight: 600;
-            margin: 0 30px;
-            transition: all .50s ease;
-            scroll-behavior: smooth;
-            color: #875e28;
-            &:hover {
-                color: rgb(122, 122, 122);
-            }
-        }
+    #menu-icon {
+      z-index: 10001;
+      cursor: pointer;
+      display: none;
+      #togglemenuicon {
+        color: #875e28;
+      }
     }
+  }
 
-    /* Gul knapp + ikoner */
-    .nav-icons {
-        display: flex;
-        align-items: center;
-        i {
-            font-size: 1.3em;
-            margin-left: 30px;
-            color: white;
-            &:hover {
-                transform: scale(1.1);
-                transition: all .50s ease;
-                color: rgb(228, 228, 228);
-            }
-        }
-        #menu-icon {
-            z-index: 10001;
-            cursor: pointer;
-            display: none;
-            #togglemenuicon {
-                color: #875e28;
-            }
-        }
+  /* Gula knappen */
+  .right-button {
+    display: inline-block;
+    background-color: $accent-color;
+    width: 120px;
+    text-align: center;
+    padding: 10px;
+    color: black;
+    font-weight: 600;
+    &:hover {
+      box-shadow: #ff9f0d 0px 1px 10px;
+      transition: all 0.4s ease;
     }
-
-    /* Gula knappen */
-    .right-button {
-        display: inline-block;       
-        background-color: $accent-color;
-        width: 120px;
-        text-align: center;
-        padding: 10px;
-        color: black;
-        font-weight: 600;
-        &:hover {
-            box-shadow: #ff9f0d 0px 1px 10px;
-            transition: all .40s ease;
-        }
-    }
+  }
 }
 
 /* Responsivitet */
 @media (max-width: 1545px) {
-    header {
-        padding: 22px 4%;
-        transition: .2s ;
-    }
-    header.sticky {
-        padding: 14px 4%;
-        transition: .2s;
-    }
+  header {
+    padding: 22px 4%;
+    transition: 0.2s;
+  }
+  header.sticky {
+    padding: 14px 4%;
+    transition: 0.2s;
+  }
 }
-
-
 
 .mdc-form-field {
-    color: white !important;
+  color: white !important;
 }
 
-::ng-deep .mat-mdc-slide-toggle.mat-mdc-slide-toggle-checked:not(.mat-disabled) .mdc-switch__shadow {
-    background-color: rgb(50, 170, 118);
-  }
-  
-  ::ng-deep .mat-mdc-slide-toggle.mat-mdc-slide-toggle-checked:not(.mat-disabled) .mdc-switch__track::after {
-    background-color: rgb(113, 226, 147) !important;
-  }
+::ng-deep
+  .mat-mdc-slide-toggle.mat-mdc-slide-toggle-checked:not(.mat-disabled)
+  .mdc-switch__shadow {
+  background-color: rgb(50, 170, 118);
+}
 
-  ::ng-deep .mat-slide-toggle-label-content {
-    color: blue; /* Ändra färgen här */
-  }
-  
+::ng-deep
+  .mat-mdc-slide-toggle.mat-mdc-slide-toggle-checked:not(.mat-disabled)
+  .mdc-switch__track::after {
+  background-color: rgb(113, 226, 147) !important;
+}
+
+::ng-deep .mat-slide-toggle-label-content {
+  color: blue; /* Ändra färgen här */
+}
 
 @media (max-width: 1060px) {
-    header .nav-icons #menu-icon {
-        display: initial;
-    }
-    .navlist {
-        z-index: 100;
-        position: absolute;
-        top: -1000px;
-        left: 0;
-        right: 0;
-        display: flex;
-        flex-direction: column;
-        text-align: left;
-        background-color: white;
-        transition: all .50s ease;
-        
-    }
-    .navlist a {
-        display: block;
-        padding: 0.5rem;
-        margin: 1rem !important;
-        border-left: 2px solid $accent-color;
-        color: black !important;
-    }
-    .navlist.open{
-        top: 67px;
-    }
+  header .nav-icons #menu-icon {
+    display: initial;
+  }
+  .navlist {
+    z-index: 100;
+    position: absolute;
+    top: -1000px;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    background-color: white;
+    transition: all 0.5s ease;
+  }
+  .navlist a {
+    display: block;
+    padding: 0.5rem;
+    margin: 1rem !important;
+    border-left: 2px solid $accent-color;
+    color: black !important;
+  }
+  .navlist.open {
+    top: 67px;
+  }
 }

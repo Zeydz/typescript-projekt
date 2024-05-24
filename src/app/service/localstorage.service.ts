@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
+import { Course } from '../model/course';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LocalstorageService {
-
   private readonly key: string = 'savedCourses';
 
-  constructor() { }
+  constructor() {}
 
   /* Hämta sparade kurser från localStorage */
   getCourses(): any[] {
@@ -15,20 +15,30 @@ export class LocalstorageService {
     return savedData ? JSON.parse(savedData) : [];
   }
 
-  /* Spara kurser i localStorage */
-  saveCourses(courses: any[]): void {
+  /* Sparar nya kurslistor i localStorage */
+  saveCourses(courses: Course[]): void {
     localStorage.setItem(this.key, JSON.stringify(courses));
   }
 
-  /* Ta bort alla sparade kurser från localStorage */
-  clearCourses(): void {
-    localStorage.removeItem(this.key);
+  /* Spara kurser i localStorage */
+  addCourse(course: Course): void {
+    const courses = this.getCourses();
+    courses.push(course);
+    this.saveCourses(courses);
   }
 
-    /* Ta bort en specifik kurs från localStorage */
-    deleteCourse(courseCode: string): void {
-      const savedCourses = this.getCourses();
-      const updatedCourses = savedCourses.filter((course: { courseCode: string }) => course.courseCode !== courseCode);
-      this.saveCourses(updatedCourses);
-    }
+  /* Ta bort en specifik kurs från localStorage, filtrerar ut en ny lista utan den specifika kursen, därefter skickas till saveCourse som sparar de nya kurserna i localStorage */
+  deleteCourse(courseCode: string): void {
+    const savedCourses = this.getCourses();
+    const updatedCourses = savedCourses.filter(
+      (course: { courseCode: string }) => course.courseCode !== courseCode
+    );
+    this.saveCourses(updatedCourses);
+  }
+
+  /* Kontrollerar ifall en kurs redan är tillagd */
+  isCourseAlreadyAdded(courseCode: string): boolean {
+    const courses = this.getCourses();
+    return courses.some((course) => course.courseCode === courseCode);
+  }
 }

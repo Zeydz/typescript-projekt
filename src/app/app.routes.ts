@@ -5,10 +5,10 @@ import { OverallPlanComponent } from './overall-plan/overall-plan.component';
 import { HomeComponent } from './home/home.component';
 
 export const routes: Routes = [
-    { path: 'home', component: HomeComponent},
-    { path: 'courses', component: CoursesComponent},
-    { path: 'overall-plan', component: OverallPlanComponent},
-    { path: '', redirectTo: '/courses', pathMatch: 'full'},
+    { path: 'home', component: HomeComponent, data: { title: 'Startsida' }},
+    { path: 'courses', component: CoursesComponent, data: { title: 'Kurser' }},
+    { path: 'overall-plan', component: OverallPlanComponent, data: { title: 'Ramschema' }},
+    { path: '', redirectTo: '/home', pathMatch: 'full'},
     { path: '404', component: NotFoundComponent},
     { path: '**', component: NotFoundComponent}
 ];
