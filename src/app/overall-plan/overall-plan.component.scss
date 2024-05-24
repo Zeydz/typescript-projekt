@@ -34,6 +34,11 @@
   color: black; // Exempel på att ändra textfärgen
 }
 
+/* Spacing för footer */
+#spacing {
+  min-height: 80%;
+}
+
 /* Responsivitet */
 @media (max-width: 850px) {
   .mat-column-subject {
