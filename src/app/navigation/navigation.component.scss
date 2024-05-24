@@ -133,15 +133,16 @@ header {
         display: flex;
         flex-direction: column;
         text-align: left;
-        background-color: $about-color;
+        background-color: white;
         transition: all .50s ease;
+        
     }
     .navlist a {
         display: block;
         padding: 0.5rem;
         margin: 1rem !important;
         border-left: 2px solid $accent-color;
-        color: white !important;
+        color: black !important;
     }
     .navlist.open{
         top: 67px;
