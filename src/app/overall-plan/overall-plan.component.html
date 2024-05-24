@@ -1,10 +1,10 @@
-<div class="container">
+<div class="container" *ngIf="dataSource.data.length > 0">
     <mat-form-field>
       <mat-label>Filter</mat-label>
       <input matInput (keyup)="applyFilter($event)" placeholder="Skriv din sökfras här..." #input>
     </mat-form-field>
   
-    <div class="mat-elevation-z8">
+    <div class="mat-elevation-z8" *ngIf="dataSource.data.length > 0">
       <table mat-table [dataSource]="dataSource" matSort>
   
         <!-- Course Code Column -->
@@ -52,14 +52,16 @@
   
         <!-- Row shown when there is no matching data. -->
         <tr class="mat-row" *matNoDataRow>
-          <td class="mat-cell" [attr.colspan]="displayedColumns.length">No data matching the filter "{{input.value}}"</td>
+          <td class="mat-cell" [attr.colspan]="displayedColumns.length">Ingen data matchar: "{{input.value}}"</td>
         </tr>
       </table>
   
       <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of courses"></mat-paginator>
-
-      
+    
     </div>
-    <div class="points">Totala poäng: {{ totalPoints }}</div>
+
+    <div class="points" *ngIf="dataSource.data.length > 0">Totala poäng: {{ totalPoints }}</div>
   </div>
-  
+  <div class="points" *ngIf="dataSource.data.length === 0" >
+    Du har sparade inga kurser
+  </div>
