@@ -15,11 +15,6 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './navigation.component.scss'
 })
 export class NavigationComponent implements OnInit{
-  isChecked: boolean = false;
-
-  onToggleChange(event: any): void {
-    this.isChecked = event.checked;
-  }
 
   /* Kod för mobilmeny */
   ngOnInit(): void {

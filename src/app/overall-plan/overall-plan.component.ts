@@ -58,6 +58,7 @@ export class OverallPlanComponent implements OnInit, AfterViewInit {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
+  
   /* Ladda kurser från localstorage*/
   loadCourses(): void {
     const courses = this.localStorageService.getCourses();
