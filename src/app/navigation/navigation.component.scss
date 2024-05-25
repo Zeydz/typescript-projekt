@@ -39,7 +39,7 @@ header {
     display: flex;
     list-style-type: none;
     padding: 0;
-    margin: 0;
+    margin-right: 110px;
 
     li {
       margin: 0 30px;
@@ -140,6 +140,7 @@ header {
   header .nav-icons #menu-icon {
     display: initial;
   }
+  
   .navlist {
     z-index: 100;
     position: absolute;
@@ -151,6 +152,12 @@ header {
     text-align: left;
     background-color: white;
     transition: all 0.5s ease;
+    margin-right: 0 !important;
+    li {
+      &.active a {
+        border-bottom: none !important;
+      }
+    }
   }
   .navlist a {
     display: block;

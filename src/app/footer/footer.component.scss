@@ -1,103 +1,136 @@
 footer {
-    border-top: 1px solid #875e28;
-    padding: 2rem 0;
-    .footerContainer {
-      width: 80%;
-      height: 20vh;
-      
-      color: black;
+  border-top: 1px solid #875e28;
+  padding: 2rem 0;
+  .footerContainer {
+    width: 80%;
+    height: 20vh;
+
+    color: black;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+
+    .footer-heading {
       display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin: 0 auto;
-  
-      .footer-heading {
-        display: flex;
-        flex-direction: column;
-        margin-right: 4rem;
-  
-        h3 {
-          margin-bottom: 2rem;
+      flex-direction: column;
+      margin-right: 4rem;
+
+      h3 {
+        font-weight: 600;
+        margin-bottom: 2rem;
+      }
+
+      a {
+        color: black;
+        margin-bottom: 0.5rem;
+        &:hover {
+          color: red;
+          transition: 0.3s ease-out;
         }
-  
-        a {
+      }
+    }
+
+    .email-form {
+      h3 {
+        margin-bottom: 2rem;
+      }
+
+      .footer-mail {
+        width: 250px;
+        height: 40px;
+        border-radius: 4px;
+        outline: none;
+        border: 1px solid black;
+        padding-left: 0.5rem;
+        font-size: 1em;
+        margin-bottom: 1rem;
+
+        &::placeholder {
           color: black;
-          margin-bottom: 0.5rem;
-          &:hover {
-            color: red;
-            transition: 0.3s ease-out;
-          }
         }
       }
-  
-      .email-form {
-        h3 {
-          margin-bottom: 2rem;
+
+      #footer-email-btn {
+        width: 120px;
+        height: 40px;
+        border-radius: 4px;
+        background-color: #875e28;
+        margin-left: 5px;
+        outline: none;
+        border: none;
+        color: white;
+        font-size: 1em;
+        &:hover {
+          cursor: pointer;
+          background-color: #337af1;
+          transition: all 0.4s ease-out;
         }
-  
-        .footer-mail {
-          width: 250px;
-          height: 40px;
-          border-radius: 4px;
-          outline: none;
-          border: 1px solid black;
-          padding-left: 0.5rem;
-          font-size: 1em;
-          margin-bottom: 1rem;
-  
-          &::placeholder {
-            color: black;
-          }
-        }
-  
-        #footer-email-btn {
-          width: 120px;
-          height: 40px;
-          border-radius: 4px;
-          background-color: #875e28;
-          margin-left: 5px;
-          outline: none;
-          border: none;
-          color: white;
-          font-size: 1em;
-          &:hover {
-            cursor: pointer;
-            background-color: #337AF1;
-            transition: all 0.4s ease-out;
-          }
-        }
-      }
-    }
-  
-    .madeBy {
-      color: white;
-      text-align: center;
-    }
-  
-    @media screen and (max-width: 1210px) {
-      .footerContainer {
-        height: 60vh;
-        padding-top: 2rem;
-  
-        .email-form {
-          margin-top: 1rem;
-        }
-      }
-    }
-  
-    @media screen and (max-width: 750px) {
-      .footer-3 {
-        display: none;
-      }
-  
-      .footerContainer {
-        height: 500px;
-        padding-top: 2rem;
-      }
-  
-      .madeBy {
-        margin-top: 50px;
       }
     }
   }
-  
+
+  .madeBy {
+    color: white;
+    text-align: center;
+  }
+
+  @media screen and (max-width: 1210px) {
+    .footerContainer {
+      height: 60vh;
+      padding-top: 2rem;
+
+      .email-form {
+        margin-top: 1rem;
+      }
+    }
+  }
+
+  @media screen and (max-width: 750px) {
+    .footer-3 {
+      display: none;
+    }
+
+    .footer-2,
+    .footer-1,
+    .footer-3 {
+      width: 150px;
+      margin-right: 0 !important;
+      margin: auto;
+      text-align: center;
+      h3 {
+        font-weight: 600;
+        margin-bottom: 0 !important;
+        margin-top: 30px;
+      }
+    }
+    .footerContainer {
+      height: 500px;
+      padding-top: 2rem;
+    }
+
+    .email-form {
+      text-align: center;
+      h3 {
+        margin-bottom: 10px !important;
+      }
+    }
+    .madeBy {
+      margin-top: 50px;
+    }
+  }
+}
+
+@media (max-width: 565px) {
+    .footerContainer {
+        flex-direction: column;
+        height: 700px !important;
+        justify-content: center;
+        align-items: center;
+        .footer-2,
+        .footer-1,
+        .footer-3 {
+        margin: auto !important;
+        }
+    }
+}
