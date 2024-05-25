@@ -34,7 +34,6 @@ header {
   }
 
   /* Mitten menyn */
-  /* Mitten menyn */
   .navlist {
     display: flex;
     list-style-type: none;
@@ -114,26 +113,6 @@ header {
     padding: 14px 4%;
     transition: 0.2s;
   }
-}
-
-.mdc-form-field {
-  color: white !important;
-}
-
-::ng-deep
-  .mat-mdc-slide-toggle.mat-mdc-slide-toggle-checked:not(.mat-disabled)
-  .mdc-switch__shadow {
-  background-color: rgb(50, 170, 118);
-}
-
-::ng-deep
-  .mat-mdc-slide-toggle.mat-mdc-slide-toggle-checked:not(.mat-disabled)
-  .mdc-switch__track::after {
-  background-color: rgb(113, 226, 147) !important;
-}
-
-::ng-deep .mat-slide-toggle-label-content {
-  color: blue; /* Ändra färgen här */
 }
 
 @media (max-width: 1060px) {
